@@ -1,0 +1,26 @@
+html {
+}
+
+body {
+	background-color: beige;
+	color: #212121;
+	margin-right: calc(-1 * (100vw - 100%));
+}
+.container {
+	width: 80%;
+	margin-inline: auto;
+}
+
+.title {
+	text-align: center;
+	font-size: 32px;
+	font-weight: 600;
+	margin-bottom: 30px;
+}
+
+.training-list {
+	display: grid;
+	justify-items: center;
+	grid-template-columns: auto auto;
+	gap: 15px;
+}
