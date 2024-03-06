@@ -37,7 +37,7 @@
 	},
   });
   
-  const { emit } = defineEmits(['save-card', 'show-modal']);
+  const emit = defineEmits(['save-card', 'show-modal']);
   
   const edit = (property, event) => {
 	const data = { ...card };

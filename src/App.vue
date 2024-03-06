@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-	  <EditModal v-if="!show" :card="cardForEdit" @set-card="updatedCard" @save-card="saveCard" />
+	  <EditModal v-if="show" :card="cardForEdit" @set-card="updatedCard" @save-card="saveCard" />
 	  <h1 class="title">Список курсов</h1>
 	  <div class="training-list">
 		<CardsDrawing :cards="cards" @click-by-card="openCardForEdit" />
@@ -12,6 +12,14 @@
 import EditModal from './components/EditModal.vue';
 import CardsDrawing from './components/CardsDrawing.vue';
 import { ref } from 'vue';
+
+const cardForEdit = ref({
+	id: 0,
+	title: '',
+	description: '',
+	duration: '',
+	unavailable: false,
+})
 
 const cards = ref([
 	{
@@ -66,7 +74,6 @@ const cards = ref([
 ]);
 
 const show = ref(false);
-const cardForEdit = ref(null);
 
 // Функция для обновления данных редактируемой карточки
 const updatedCard = (card) => cardForEdit.value = card;
