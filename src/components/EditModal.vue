@@ -9,15 +9,15 @@
 		  <div class="modal__body">
 			<div class="body-text-edit">
 			  <label class="text-edit_lable">Название курса:</label>
-			  <input type="text" :value="card.title" @input="editTitle">
+			  <input type="text" :value="data.title" @input="editTitle">
 			  <label class="text-edit_lable">Описание курса:</label>
-			  <input type="text" :value="card.description" @input="editDescription">
+			  <input type="text" :value="data.description" @input="editDescription">
 			  <label class="text-edit_lable">Длительность курса:</label>
-			  <input type="number" :value="card.duration" @input="editDuration">
+			  <input type="number" :value="data.duration" @input="editDuration">
 			</div>
 			<div class="body-text-settings">
-			  <input type="checkbox" :value="card.unavailable = !card.unavailable" @input="editUnavailable">
-			  <label class="text-settings_lable">Сделать курс {{ card.unavailable ? 'доступным' : 'недоступным' }}</label>
+			  <input type="checkbox" :value="data.unavailable = !data.unavailable" @input="editUnavailable">
+			  <label class="text-settings_lable">Сделать курс {{ data.unavailable ? 'доступным' : 'недоступным' }}</label>
 			</div>
 		  </div>
 		  <div class="modal__footer">
@@ -36,11 +36,11 @@
 	  default: null,
 	},
   });
+  const data = { ...card };
   
-  const emit = defineEmits(['save-card', 'show-modal']);
+  const emit = defineEmits(['save-card', 'sat-card', 'show-modal']);
   
   const edit = (property, event) => {
-	const data = { ...card };
 	data[property] = event.target.value;
 	emit('set-card', data);
   };
@@ -50,8 +50,7 @@
   const editDuration = (event) => edit('duration', event);
   const editUnavailable = (event) => edit('unavailable', event);
   
-  const save = () => {
-	const data = { ...card };
+  const save = (data) => {
 	emit('save-card', data);
 	emit('show-modal', false);
   };
