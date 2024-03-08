@@ -3,12 +3,11 @@
 		<div v-if="!card.unavailable">
 			<div class="card-header">
 				<h3 class="card-title">{{ card.title }}</h3>
-				<!-- <button class="card_button"> <img src="@/assets/icon/edit_icon.svg"> </button> -->
 			</div>
 			<div class="card-body">
 				<p class="card-text">{{ card.description }}</p>
 				<div class="card-footer">
-					<sapan>{{ card.duration }}</sapan>
+					<span>{{ card.duration }} месяцев</span>
 				</div>
 
 			</div> 
@@ -24,9 +23,6 @@ const { card, index } = defineProps({
 	index: { type: Number, },
 	card: { type: Object, }
 });
-
-
-
 </script>
 
 <style scoped>
@@ -39,6 +35,7 @@ span {
 }
 .card {
 	width: 100%;
+	justify-content: center;
 	.card__unavailable {
 		display: flex;
 		
