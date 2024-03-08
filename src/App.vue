@@ -14,6 +14,14 @@ import CardsDrawing from './components/CardsDrawing.vue';
 import SkeletonCardsDrawing from './components/skeleton/SkeletonCardsDrawing.vue';
 import { ref } from 'vue';
 
+const cardForEdit = ref({
+	id: 0,
+	title: '',
+	description: '',
+	duration: '',
+	unavailable: false,
+})
+
 var cardsIsLoading = ref( true );
 var show = ref( false );
 
