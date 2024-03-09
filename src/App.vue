@@ -2,7 +2,7 @@
 	<div class="container">
 		<h1 class="title">Список курсов</h1>
 		<CardsDrawing v-if="!cardsIsLoading" :cards="cards" @click-by-card="openCardForEdit" />
-		<SkeletonCardsDrawing v-else :cardsCopy="cards !== null && undefined ? cardsCopy : cards"/>
+		<SkeletonCardsDrawing v-else :cardsCopy="cards !== null || undefined ? cardsCopy : cards"/>
 
 		<EditModal class="modal-window" v-if="show.value === true" :card="defaultCardObject" @set-card="updatedCard" @save-card="saveCard" :show-modal="showModal"/>
 	</div>
@@ -114,7 +114,7 @@ const cardsLoading = () => {
 		];
 		
 		cardsIsLoading.value = false;
-	}, 1000)
+	}, 2000)
 };
 cardsLoading()
 

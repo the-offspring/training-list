@@ -23,7 +23,7 @@
 	width: 100%;
   height: 200px;
 	padding: 15px 24px 16px;
-	border-radius: 16px;
+	border-radius: 6px;
 }
 
 .card__title {
@@ -78,7 +78,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 16px;
+  border-radius: 6px;
 }
 
 @keyframes card_skeleton {

@@ -17,7 +17,8 @@
 				</div>
 				<div class="body-text-settings">
 					<label>
-					  <input type="checkbox" :value="card.unavailable" @change="toggleUnavailable" @input="editUnavailable">
+						<!-- @change="toggleUnavailable" -->
+					  <input type="checkbox" :value="card.unavailable" @input="editUnavailable"> 
 					<p class="text-settings_lable">Сделать курс {{ card.unavailable ? 'доступным' : 'недоступным' }}</p>
 				  </label>
 				</div>
@@ -61,12 +62,11 @@ const editDescription = (event) => editCard('description', event);
 const editDuration = (event) => editCard('duration', event);
 const editUnavailable = (event) => editCard('unavailable', event);
 
-const toggleUnavailable = () => {
-	console.log("1",prop.card.unavailable)
-    card.unavailable = !card.unavailable;
-	console.log("2", prop.card.unavailable)
-
-};
+// const toggleUnavailable = () => {
+// 	console.log("1",prop.card.unavailable)
+//     card.unavailable.value = card.unavailable !== false ? false : true;
+// 	console.log("2", prop.card.unavailable)
+// };
 
 const saveCard = () => {
     emit('save-card');
@@ -79,7 +79,8 @@ const saveCard = () => {
   input, textarea {
 	outline: 1px solid #c5c5c5;
 	border: none;
-	border-radius: 10px;
+	border-radius: 6px;
+	padding: 6px 12px;
   }
   button {
 	outline: 1px solid #c5c5c5;
